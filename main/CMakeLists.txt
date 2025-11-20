@@ -24,7 +24,6 @@ set(SOURCES "audio/audio_codec.cc"
             "display/lvgl_display/gif/lvgl_gif.cc"
             "display/lvgl_display/gif/gifdec.c"
             "display/lvgl_display/jpg/image_to_jpeg.cpp"
-            "display/lvgl_display/jpg/jpeg_to_image.c"
             "protocols/protocol.cc"
             "protocols/mqtt_protocol.cc"
             "protocols/websocket_protocol.cc"
@@ -225,11 +224,6 @@ elseif(CONFIG_BOARD_TYPE_WAVESHARE_S3_TOUCH_AMOLED_2_06)
     set(BUILTIN_TEXT_FONT font_puhui_basic_30_4)
     set(BUILTIN_ICON_FONT font_awesome_30_4)
     set(DEFAULT_EMOJI_COLLECTION twemoji_64)
-elseif(CONFIG_BOARD_TYPE_WAVESHARE_C6_TOUCH_AMOLED_2_06)
-    set(BOARD_TYPE "waveshare-c6-touch-amoled-2.06")
-    set(BUILTIN_TEXT_FONT font_puhui_basic_30_4)
-    set(BUILTIN_ICON_FONT font_awesome_30_4)
-    set(DEFAULT_EMOJI_COLLECTION twemoji_64)
 elseif(CONFIG_BOARD_TYPE_WAVESHARE_S3_TOUCH_LCD_4B)
     set(BOARD_TYPE "waveshare-s3-touch-lcd-4b")
     set(BUILTIN_TEXT_FONT font_puhui_basic_30_4)
@@ -270,10 +264,6 @@ elseif(CONFIG_BOARD_TYPE_WAVESHARE_S3_TOUCH_LCD_3_5B)
     set(BUILTIN_TEXT_FONT font_puhui_basic_16_4)
     set(BUILTIN_ICON_FONT font_awesome_16_4)
     set(DEFAULT_EMOJI_COLLECTION twemoji_32)
-elseif(CONFIG_BOARD_TYPE_WAVESHARE_S3_ePaper_1_54)
-    set(BOARD_TYPE "waveshare-s3-epaper-1.54")
-    set(BUILTIN_TEXT_FONT font_puhui_basic_20_4)
-    set(BUILTIN_ICON_FONT font_awesome_20_4)
 elseif(CONFIG_BOARD_TYPE_WAVESHARE_S3_TOUCH_LCD_3_49)
     set(BOARD_TYPE "waveshare-s3-touch-lcd-3.49")
     set(LVGL_TEXT_FONT font_puhui_basic_30_4)
@@ -551,6 +541,20 @@ elseif(CONFIG_BOARD_TYPE_AIPI_LITE)
     set(BUILTIN_TEXT_FONT font_puhui_basic_14_1)
     set(BUILTIN_ICON_FONT font_awesome_14_1)
     set(DEFAULT_EMOJI_COLLECTION twemoji_32)
+    set(BOARD_TYPE "zhengchen-cam")
+    set(LVGL_TEXT_FONT ${FONT_PUHUI_BASIC_20_4})
+    set(LVGL_ICON_FONT ${FONT_AWESOME_20_4})
+    set(DEFAULT_ASSETS ${ASSETS_XIAOZHI_PUHUI_COMMON_20_4_EMOJI_64})
+elseif(CONFIG_BOARD_TYPE_ZHENGCHEN_CAM_ML307)
+    set(BOARD_TYPE "zhengchen-cam-ml307")
+    set(LVGL_TEXT_FONT ${FONT_PUHUI_BASIC_20_4})
+    set(LVGL_ICON_FONT ${FONT_AWESOME_20_4})
+    set(DEFAULT_ASSETS ${ASSETS_XIAOZHI_PUHUI_COMMON_20_4_EMOJI_64})
+elseif(CONFIG_BOARD_TYPE_YN056)
+    set(BOARD_TYPE "yeniu-yn056")
+    set(BUILTIN_TEXT_FONT font_puhui_basic_20_4)
+    set(BUILTIN_ICON_FONT font_awesome_20_4)
+    set(DEFAULT_EMOJI_COLLECTION twemoji_64)
 endif()
 
 file(GLOB BOARD_SOURCES
@@ -688,8 +692,7 @@ if(CONFIG_IDF_TARGET_ESP32)
                              "audio/codecs/es8389_audio_codec.cc"
                              "led/gpio_led.cc"
                              "${CMAKE_CURRENT_SOURCE_DIR}/boards/common/esp32_camera.cc"
-                             "display/lvgl_display/jpg/image_to_jpeg.cpp"
-                             "display/lvgl_display/jpg/jpeg_to_image.c"
+                            "display/lvgl_display/jpg/image_to_jpeg.cpp"
                              )
 endif()
 
